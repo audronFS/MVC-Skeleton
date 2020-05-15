@@ -17,7 +17,7 @@
         $controller = 'pages';
         $action     = 'home';
   }
-
+//sfsf
     require_once('views/layout.php');
         ?>
     </body>
