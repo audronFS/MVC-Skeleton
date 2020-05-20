@@ -50,10 +50,12 @@ if($blogpost){
 
 public static function update($id) {
     $db = Db::getInstance();
-    $req = $db->prepare("Update blogpost set title=:title, posttext=:posttext where id=:id");
+    $req = $db->prepare("Update blogpost set title=:title, posttext=:posttext, photo=:photo where id=:id");
     $req->bindParam(':id', $id);
     $req->bindParam(':title', $title);
     $req->bindParam(':posttext', $posttext);
+    $req->bindParam(':photo', $photo);
+
 
 // set title and text parameters and execute
     if(isset($_POST['title'])&& $_POST['title']!=""){
@@ -64,6 +66,7 @@ public static function update($id) {
     }
 $title = $filteredTitle;
 $posttext = $filteredPostText;
+//$photo = $filteredPhoto;
 $req->execute();
 
 //upload blog posts image if it exists
@@ -88,16 +91,17 @@ $req->execute();
     if(isset($_POST['posttext'])&& $_POST['posttext']!=""){
         $filteredPostText = filter_input(INPUT_POST,'posttext', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    
- $photo = $_FILE['name'];
- 
+     
 $title = $filteredTitle;
 $posttext = $filteredPostText;
-$photo = 'views/images/' .$photo. '.jpeg';
+$photo = 'views/images/' . $filteredTitle. '.jpeg';
+
+//$photo = $filteredPhoto['name'];
+//$photo = 'views/images/' . $photo. '.jpeg'; 
 $req->execute();
 
 //upload blog posts image
-BlogPost::uploadFile($title);
+BlogPost::uploadFile($title);//changes from $title to photo
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -105,7 +109,7 @@ const InputKey = 'myUploader';
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
-public static function uploadFile(string $title) {
+public static function uploadFile(string $title) { //changed from $title to $photo
 
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
@@ -122,8 +126,8 @@ public static function uploadFile(string $title) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
-        $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
-	$destinationFile = $path . $photo. '.jpeg';  //in the database, we store the reference to that path.
+        $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder temporarily.
+	$destinationFile = $path . $title. '.jpeg';  //in the database, we store the reference to that path.
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");

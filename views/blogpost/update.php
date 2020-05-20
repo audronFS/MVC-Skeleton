@@ -12,7 +12,7 @@
             
   <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
 <?php 
-$file = 'views/images/' . $blogpost->title . '.jpeg';
+$file = 'views/images/' . $blogpost->photo . '.jpeg';
 if(file_exists($file)){
     $img = "<img src='$file' width='150' />";
     echo $img;
