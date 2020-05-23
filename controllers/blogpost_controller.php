@@ -1,7 +1,9 @@
 <?php
 
 //Controller does the calls to the functionalities inside the models.
+//testing
 
+//Adding sometthing to file after Aurora's hig
 class BlogPostController {
     public function readAll() {
       // we store all the posts in a variable
