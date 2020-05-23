@@ -1,7 +1,7 @@
 <?php
 
 //Controller does the calls to the functionalities inside the models.
-
+//testing
 class BlogPostController {
     public function readAll() {
       // we store all the posts in a variable
