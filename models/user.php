@@ -123,40 +123,40 @@ unlink($tempFile);
 }
 }
 
-public function login() {
-$db = Db::getInstance();
-$req = $db->prepare("SELECT * BloggerID FROM blogger WHERE Username = :Username AND Hashcode = :Hashcode LIMIT 1");
-$req->bindParam();
-$req->store_result();
-$req->execute();
-
-if (isset($_SESSION['loggedin'])) {
-        return true;
-} else {
-    return false;
-}
-
-//check for num rows:
-if ($req->num_rows > 0) {
-    //success
-    $req->close();
-    return true;
-} else {
-    //failure
-    $req->close();
-    return false;
-}
-else {
-    die ("Error! Could not log in");
-}
-}
-
-function logout() {
-    session_destroy();
-    session_start();
-}
-
-}
+//public function login() {
+//$db = Db::getInstance();
+//$req = $db->prepare("SELECT * BloggerID FROM blogger WHERE Username = :Username AND Hashcode = :Hashcode LIMIT 1");
+//$req->bindParam();
+//$req->store_result();
+//$req->execute();
+//
+//if (isset($_SESSION['loggedin'])) {
+//        return true;
+//} else {
+//    return false;
+//}
+//
+////check for num rows:
+//if ($req->num_rows > 0) {
+//    //success
+//    $req->close();
+//    return true;
+//} else {
+//    //failure
+//    $req->close();
+//    return false;
+//}
+//else {
+//    die ("Error! Could not log in");
+//}
+//}
+//
+//function logout() {
+//    session_destroy();
+//    session_start();
+//}
+//
+//}
 //Functions we may need if we create an admin user, or if we decide to make our current blogger a normal blogger user as well as an admin with a range of powers over the blog:
 //*All users
 //*Find users
