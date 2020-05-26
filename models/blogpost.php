@@ -92,7 +92,7 @@ public static function update($blogpostID) {
     $req = $db->prepare("Update blogpost set BlogPostName=:BlogPostName, BlogPostSubName=:BlogPostSubName, BlogPostContent=:BlogPostContent where BlogPostID=:BlogPostID");
     $req->bindParam(':BlogPostID', $blogpostID);
     $req->bindParam(':BlogPostName', $blogPostName);
-    $req->bindParam(':BlogSubName', $blogPostSubName);
+    $req->bindParam(':BlogPostSubName', $blogPostSubName);
     $req->bindParam(':BlogPostContent', $blogPostContent);
   
 // set title and text parameters and execute
@@ -115,7 +115,7 @@ $req->execute();
     $req = $db->prepare("Update blogpost set BlogPostName=:BlogPostName, BlogPostSubName=:BlogPostSubName, BlogPostContent=:BlogPostContent, BlogPostPhoto=:BlogPostPhoto where BlogPostID=:BlogPostID");
     $req->bindParam(':BlogPostID', $blogpostID);
     $req->bindParam(':BlogPostName', $blogPostName);
-    $req->bindParam(':BlogSubName', $blogPostSubName);
+    $req->bindParam(':BlogPostSubName', $blogPostSubName);
     $req->bindParam(':BlogPostContent', $blogPostContent);
     $req->bindParam(':BlogPostPhoto', $blogPostPhoto);
   
