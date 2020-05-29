@@ -125,8 +125,30 @@ class User {
     }
 
     public function getUsername() {
-        $this->_username = $username;
+        $this->username = $username;
     }
+    
+    public static function find($username) {
+      $db = Db::getInstance();
+      //use intval to make sure $id is an integer
+      $username = intval($username);
+      $req = $db->prepare('SELECT * FROM blogger WHERE Username = :Username');
+      //the query was prepared, now replace :id with the actual $id value
+      $req->execute(array('Username' => $username));
+      $displayed_username = $req->fetch();
+      return $displayed_username;
+    }
+ /*if($displayed_username){
+      return new User ($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'],$blogpost['DatePosted']);
+    }
+    else
+    {
+        //replace with a more meaningful exception
+
+        throw new Exception('Blogposts could not be found.');
+    }
+    
+  */
 
     public static function login() { 
         $db = Db::getInstance();
