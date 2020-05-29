@@ -1,5 +1,4 @@
-<?php session_start();
-?>
+
                 <div id="realTimeContents">         
 
 <div class="container">

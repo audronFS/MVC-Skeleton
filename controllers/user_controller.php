@@ -25,8 +25,7 @@ class UserController {
             $register_number = User::login();
             if ($register_number != 0) {
                 $_SESSION["Username"] = $_POST["Username"];
-                header("Location:views/blogpost/readAll.php");
-                exit();
+//                exit();
             } else {
                 require_once('views/user/login.php');
                 echo '<script language="javascript">';
@@ -35,6 +34,8 @@ class UserController {
             }
         }
     }
+    //set a superglobal with a logged in successfully message/string
+    //Check whats in the superglobal and if successful, put a header
 
     public function search() {
         //we expect a url of form ?controller=user&action=create
@@ -48,6 +49,5 @@ class UserController {
             User::search();
         }
     }
-
 }
 
