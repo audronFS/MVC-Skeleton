@@ -1,5 +1,5 @@
 <?php
-
+//session_start();
 //Controller does the calls to the functionalities inside the models.
 
 class UserController {
@@ -24,9 +24,9 @@ class UserController {
         } else {
             $register_number = User::login();
             if ($register_number != 0) {
-                session_start();
                 $_SESSION["Username"] = $_POST["Username"];
-                header("Location:'views/blogpost/readAll.php'");
+                header("Location:views/blogpost/readAll.php");
+                exit();
             } else {
                 require_once('views/user/login.php');
                 echo '<script language="javascript">';
@@ -51,4 +51,3 @@ class UserController {
 
 }
 
-?>

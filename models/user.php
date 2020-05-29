@@ -1,4 +1,3 @@
-
 <?php
 
 //Register function defined in the User class.
