@@ -14,7 +14,6 @@ if(isset($_POST["query"]))
   WHERE BlogPostName LIKE '%".$search."%'
   OR BlogPostSubName LIKE '%".$search."%' 
   OR BlogPostContent LIKE '%".$search."%' 
-  OR BlogPostPhoto LIKE '%".$search."%' 
 
  "; //MySQL query with placeholders
 }
@@ -32,9 +31,8 @@ if(mysqli_num_rows($result) > 0)
    <table class="table table bordered">
     <tr>
      <th>Title </th>
-     <th>Subtitle</th>
+     <th>Sub Title</th>
      <th>Blog Post</th>
-     <th>Photo</th>
 
      <th></th>
      <th></th>
@@ -47,7 +45,6 @@ if(mysqli_num_rows($result) > 0)
     <td>'.$row["BlogPostName"].'</td>
     <td>'.$row["BlogPostSubName"].'</td>
     <td>'.$row["BlogPostContent"].'</td>
-    <td>'.$row["BlogPostPhoto"].'</td>
 
    </tr>
   ';

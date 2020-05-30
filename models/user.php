@@ -162,11 +162,10 @@ class User {
 //    }
 
     public function search() {
+    $output = ''; 
 
     $db = Db::getInstance();
     if (isset($_POST["query"])) {
-
-
     $search = mysqli_real_escape_string($db, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
     //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
     //This is good to use and avoids sql injection
