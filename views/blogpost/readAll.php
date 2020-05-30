@@ -1,51 +1,5 @@
- 
-
-<!--<div id="realTimeContents">         
-
-<div class="container">
-   <div class="row">
-       <div class="col">
-<!--      1 of 3
-</div>
-<div class="col-6">
-<!--      2 of 3 (wider)
-</div>
-<div class="col">
-3 of 3
-</div>
-</div>
-<div class="row">
-<div class="col">z
-1 of 3
-</div>
-<div class="col-5">
-2 of 3 (wider)
-</div>
-<div class="col">
-3 of 3
-</div>
-</div>
-</div>
-</div> -->
-
-<!-- ForEach over our blogposts -->
-
-<!--   //Attempts to move the translate API to the right hand side:-->
-<!--<div dir="rtl" lang="">-->
-<!--<style>
-.google_translate_element {
-  border: 5px outset red;
-  background-color: lightblue;    
-  text-align: center;
-}
-</style>-->
-<!--<style>
-    .google_translate_element {
-    align: center;
-}
-</style>-->
 <p></p>
-
+<!-- Google Translate -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-10"></div>
@@ -56,14 +10,12 @@
                         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
                     }
                 </script>
-
                 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>      
             </div>
         </div>
     </div>
 </div>
-<!-- Banner -->
-
+<!-- Blogs and Title -->
 <div class="container-fluid">
     <div class =" container">
         <div class="row">
@@ -76,40 +28,46 @@
                 <p class="lead">
                     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
                 </p>-->
-                <div class="card mb-4">
+<!--                <div class="card mb-4">-->
                      <!-- <img class="card-img-to">-->  
-                    <?php
-                    foreach ($blogposts as $blogpost) {
-                        try {
-                            if (empty($blogpost->blogPostPhoto)) {
-                                throw new Exception("Picture is not available");
-                            } else {                                
-                                $filePath = $blogpost->blogPostPhoto;
-                                $splitFilePath = explode('/', $filePath);
-                                $imageName = end($splitFilePath);
-                                //echo "<div>";
-                                $img = "<img class='card-img-top' src='views/images/$imageName' alt='Card image cap';/>";
-
-                                echo $img;
-                            }
-                        } catch (Exception $e) {
-                            echo 'Message: ' . $e->getMessage();
+                     <?php
+                foreach ($blogposts as $blogpost) {
+                    try {
+                        if (empty($blogpost->blogPostPhoto)) {
+                            throw new Exception("Picture is not available");
+                        } else {
+                            $filePath = $blogpost->blogPostPhoto;
+                            $splitFilePath = explode('/', $filePath);
+                            $imageName = end($splitFilePath);
+                            //echo "<div>";
+                            $img = "<img class='card-img-top' src='views/images/$imageName' alt='Card image cap';/>";
+//                          echo $img;
                         }
-                        ?> 
-              
-                            <div class="card-body">
-                                <h2 class="card-title">  <?php echo $blogpost->blogPostName; ?></h2>
-                                <p class="card-text">   <?php echo $blogpost->blogPostSubName; ?>  </p>
-                                <a class="btn btn-primary" href='?controller=blogpost&action=read&id=<?php echo $blogpost->blogpostID; ?>'>Read More &rarr;</a>
-                            </div>
-                            <div class="card-footer text-muted">
-                                <?php echo $blogpost->datePosted; ?> 
-                                <!--                    Posted on January 1, 2017 -->
-                                <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Edit</a>
-                                <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete</a>  
-                            </div>
+                    } catch (Exception $e) {
+                        echo 'Message: ' . $e->getMessage();
+                    }
+                    ?>                
+                    <div class='card mb-4'>
+    <!--  the below line will show the following <img class='card-img-top' src='views/images/$imageName' alt='Card image cap';/>-->
+                        <?php echo $img; ?>
+                        <div class="card-body">
+                            <h2 class="card-title">                    
+                                <?php echo $blogpost->blogPostName; ?> 
+                            </h2>
+                            <p class="card-text">   <?php echo $blogpost->blogPostSubName; ?>  </p>
+                            <a class="btn btn-primary" href='?controller=blogpost&action=read&id=<?php echo $blogpost->blogpostID; ?>'>Read More &rarr;</a>    
+                        </div>
+                        <div class="card-footer text-muted">
+                            <?php echo $blogpost->datePosted; ?> 
+                            <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Edit</a>
+                            <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'> Delete</a>
+                        </div>                      
+                    </div>
+                    <div class="display-4"> </div>           
+                <?php } ?>
+            </div> 
              
-                        <?php } ?> 
+                   
                     <div class="col-md-2"></div>
                        </div>
                     </div>
