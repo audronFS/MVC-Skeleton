@@ -8,7 +8,7 @@
 //*If Blogger is logged in, set to True
 //*If not, set to False
 //if $_SESSION is true, make sure they see this on the navbar
-////i.e. if (ISSET($_SESSION['blogger']))
+////i.e. if (ISSET($_SESSION['blogger'])) or true
 //if $_SESSION is false, make sure they see this on the navbar
 //Layout.php?
 //You can choose what to show in that session
@@ -156,9 +156,9 @@ class User {
 //    }
 //
     public function logout() {
-        session_start();
         if(session_destroy()) // Destroying all sessions
-header("Location: index.php"); // Redirecting to home page
+        echo "<script>window.location.href = 'index.php?controller=user&action=login';</script>"; //3. if logged in, send the user to readAll.php
+   exit;
 }
 
     public function search() {

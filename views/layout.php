@@ -130,9 +130,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href='?controller=blogpost&action=readAll'>Blogs</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href='?controller=blogpost&action=create'>Add Blog</a>
-                </li>
+                <?php
+                // 
+                if (isset($_SESSION['authorised'])) { //if logged in, show them add blog!!
+                    echo "
+                <li class=nav-item>
+                    <a class='nav-link' href='?controller=blogpost&action=create'>Add Blog</a> 
+                </li>";  
+                }
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href='?controller=user&action=create'>Register</a>
                 </li>
@@ -148,10 +154,22 @@
                 <li class="nav-item">              
                     <a class="nav-link" name ="search_text" href='?controller=user&action=search'>Search</a>
                 </li>
-                <li class="nav-item">              
-                <a class="nav-link" href='?controller=user&action=login'>Login</a>
-                </li>
+                <?php
+                // 
+                if (!isset($_SESSION['authorised'])) { //this if statement: only show login if its unset. If you're logged in, its set- you shouldnt show the login
+                    echo "
+                <li class='nav-item'>              
+                <a class='nav-link' href='?controller=user&action=login'>Login</a>
+                </li>"; echo $_SESSION["Username"];
+                }
+                ?>
+                 <?php if(isset($_SESSION['authorized'])) {
+                 echo "<li class='nav-item'>              
+                    <a class='nav-link' href='?controller=user&action=logout'>Logout</a>
+                </li>"; 
+                }?>
 
+               
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2 textSearchvalue_h" type="text" placeholder="Search" name="text-12" id="text-12" value="" >
@@ -192,7 +210,7 @@
     </header>-->
 
     <div>
-        <?php require_once('routes.php'); ?>
+<?php require_once('routes.php'); ?>
     </div>
 </body>
 <div class="col-sm-9 col-md-7 col-lg-5">
@@ -217,31 +235,31 @@
 
 
 <script>
-        $(document).ready(function () {
+            $(document).ready(function () {
 
-            load_data();
+                load_data();
 
-            function load_data(query)
-            {
-                $.ajax({
-                    url: "user.php",
-                    method: "POST", //method type
-                    data: {query: query},
-                    success: function (data)
+                function load_data(query)
+                {
+                    $.ajax({
+                        url: "user.php",
+                        method: "POST", //method type
+                        data: {query: query},
+                        success: function (data)
+                        {
+                            $('#result').html(data);
+                        }
+                    });
+                }
+                $('#search_text').keyup(function () {
+                    var search = $(this).val();
+                    if (search != '') //even if there is no search, still load the whole books table.
                     {
-                        $('#result').html(data);
+                        load_data(search);
+                    } else
+                    {
+                        load_data();
                     }
                 });
-            }
-            $('#search_text').keyup(function () {
-                var search = $(this).val();
-                if (search != '') //even if there is no search, still load the whole books table.
-                {
-                    load_data(search);
-                } else
-                {
-                    load_data();
-                }
             });
-        });
 </script>

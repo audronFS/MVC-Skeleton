@@ -1,9 +1,9 @@
 <?php // session_start();
-//if user is logged in, take them to the success page
-//if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-//    header("location: readAll.php");
-//    exit;
-//}
+//if user is logged in, if they click on login.php in the navbar, they will be redirected to readAll.php
+if(isset($_SESSION['authorised']) && $_SESSION["authorised"] === true){ //if user is logged in, when they click on login.php in the navbar, they will be redirected to readAll.php
+        echo "<script>window.location.href = 'index.php?controller=blogpost&action=readAll';</script>";
+    exit;
+}
 ?>
 
  

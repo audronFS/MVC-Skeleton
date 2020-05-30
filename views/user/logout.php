@@ -1,12 +1,6 @@
-<?php
-  session_start();
-   
-   if(session_destroy()) {
-      header("Location: login.php");
+<?php if(session_destroy()) {
+   echo "<script>window.location.href = 'index.php?controller=user&action=readAll';</script>"; //3. if logged in, send the user to readAll.php
+   exit;
    }
+   ?>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
