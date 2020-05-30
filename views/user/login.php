@@ -1,5 +1,12 @@
 <?php // session_start();
+//if user is logged in, take them to the success page
+//if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+//    header("location: readAll.php");
+//    exit;
+//}
 ?>
+
+ 
 <body class="">  
     <div class="container">
         <div class="row">

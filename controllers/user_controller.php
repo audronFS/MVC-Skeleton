@@ -34,8 +34,53 @@ class UserController {
             }
         }
     }
-    //set a superglobal with a logged in successfully message/string
+    
+//      if ($register_number != 0) { //where to include this - inside login function in controller or in index.php?
+//        //set session
+//        $_SESSION=['authorized'] == true;
+//        //reload the page
+//        $_SESSION['success'] = 'Login successful';
+//        header('Location: index.php?controller=blogpost&action=readAll');
+//        exit;
+//    } else {
+//        $_SESSION=['error'] = 'Sorry, wrong email or password';
+//    }
+//}
+//    
+//   function messages() {
+//   $message = '';
+//   if($_SESSION['success'] != '') {
+//       $message = '<span class="success" id="message">'.$_SESSION['success'].'</span>';
+//       $_SESSION['success'] = '';
+//   }
+//   if($_SESSION['error'] != '') {
+//       $message = '<span class="error" id="message">'.$_SESSION['error'].'</span>';
+//       $_SESSION['error'] = '';
+//   }
+//   return $message;
+//}
+  
+//                
+    
+     //set a superglobal with a logged in successfully message/string
     //Check whats in the superglobal and if successful, put a header
+    
+//    public function login() {
+//        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+//            if (!empty($_SESSION['Username'])){
+//                echo "<script>window.location.href = 'index.php?controller=pages&action=home';</script>";
+//            }
+//            else {
+//                require_once('views/users/login_register.php');
+//            }
+//        }
+//        else { 
+//            if(isset($_POST['loginsubmit'])){
+//                
+//            }
+//        }
+//    }
+//   
 
     public function search() {
         //we expect a url of form ?controller=user&action=create

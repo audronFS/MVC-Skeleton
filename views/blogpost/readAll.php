@@ -1,5 +1,14 @@
+<?php 
+//Check if the User is logged in, otherwise, redirect to login page.
+//if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+//    header("location: login.php");
+//} else {  
+//        echo "You are succesfully logged in.";
+//    }    
+?> 
 
-                <div id="realTimeContents">         
+
+            <div id="realTimeContents">         
 
 <div class="container">
     <div class="row">

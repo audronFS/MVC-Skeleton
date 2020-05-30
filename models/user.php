@@ -141,7 +141,7 @@ class User {
         
     }
 //
-////check for num rows
+// check for num rows
 //        if ($req->num_rows > 0) {
 //            //success
 //            $req->close();
@@ -155,10 +155,11 @@ class User {
 //        }
 //    }
 //
-//    public function logout() {
-//        session_destroy();
-//        session_start();
-//    }
+    public function logout() {
+        session_start();
+        if(session_destroy()) // Destroying all sessions
+header("Location: index.php"); // Redirecting to home page
+}
 
     public function search() {
 
