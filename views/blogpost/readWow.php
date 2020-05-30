@@ -127,7 +127,7 @@
                         }
                         ?>                
         <!--                <img class="card-img-top" src='' alt="Card image cap">-->
-                    <div class="card">  
+                    
                     <div class="card-body">
                             <h2 class="card-title">                    
                                 <?php echo $blogpost->blogPostName; ?> 
@@ -139,19 +139,19 @@
                             <?php echo $blogpost->datePosted; ?> 
                             <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Edit</a>
                             <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'> Delete</a>
+                            
                         </div>
-                    <br>
-                    
+                     <?php } ?>
+                     </div>
                     </div> 
-                </div>
-            <?php } ?>
-                   
+             
             </div>
              <div class="col-md-2"></div>
                </div>
+    
            </div>
+ 
    
-</div>
                 
             
         
