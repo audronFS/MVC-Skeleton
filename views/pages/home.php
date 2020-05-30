@@ -1,8 +1,8 @@
 <div class="container">
-    
-       <!--SPACING-->
-       <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0"></h1>
-    
+
+    <!--SPACING-->
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0"></h1>
+
     <!--     BANNER WITH BUTTON LINKING TO ALL BLOGS -->
     <!--    <div class="row text-center text-lg-left pb-4 imagecontainer">
             <div class="col-12">
@@ -10,7 +10,7 @@
                 <a href='?controller=blogpost&action=readAll'> <button class="btn">View blogs</button> </a>
             </div>
         </div>-->
-    
+
     <!--GALLERY-->
     <div class="row text-center text-lg-left">
         <div class="col-lg-3 col-md-4 col-6">

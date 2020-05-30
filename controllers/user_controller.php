@@ -24,7 +24,7 @@ class UserController {
         } else {
             $register_number = User::login();
             if ($register_number != 0) {
-                 require_once('../view/layout.php');                
+                require_once('../view/layout.php');
             } else {
                 require_once('views/user/login.php');
                 echo '<script language="javascript">';

@@ -1,18 +1,18 @@
 <!-- Page Container -->
 <div class="container-fluid">
-<!-- Page Content -->
+    <!-- Page Content -->
     <div class="container">
         <div class="row">
-<!-- Column -->
+            <!-- Column -->
             <div class="col-md-2"></div>
-<!-- Blog Entries Column -->
+            <!-- Blog Entries Column -->
             <div class="col-md-8">                
-<!--Text banner-->
+                <!--Text banner-->
                 <div class="col-md-8  py-3">
-                <h1 class="display">LOL</h1>
-                <p class="lead">They're hairy...but mainly they're hilarious!</p>
-            </div>
- <!-- Blog Post | For Each -->
+                    <h1 class="display">LOL</h1>
+                    <p class="lead">They're hairy...but mainly they're hilarious!</p>
+                </div>
+                <!-- Blog Post | For Each -->
                 <?php
                 foreach ($blogposts as $blogpost) {
                     try {

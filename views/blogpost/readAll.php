@@ -28,9 +28,9 @@
                 <p class="lead">
                     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
                 </p>-->
-<!--                <div class="card mb-4">-->
-                     <!-- <img class="card-img-to">-->  
-                     <?php
+                <!--                <div class="card mb-4">-->
+                                     <!-- <img class="card-img-to">-->  
+                <?php
                 foreach ($blogposts as $blogpost) {
                     try {
                         if (empty($blogpost->blogPostPhoto)) {
@@ -66,15 +66,15 @@
                     <div class="display-4"> </div>           
                 <?php } ?>
             </div> 
-             
-                   
-                    <div class="col-md-2"></div>
-                       </div>
-                    </div>
-                      
-                </div>
-            </div>
+
+
+            <div class="col-md-2"></div>
         </div>
+    </div>
+
+</div>
+</div>
+</div>
 
 
 
