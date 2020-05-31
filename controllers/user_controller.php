@@ -24,7 +24,10 @@ class UserController {
         } else {
             $register_number = User::login();
             if ($register_number != 0) {
-                require_once('../view/layout.php');
+                 $_SESSION["Username"] = $_POST["Username"];
+                 $_SESSION["Hashcode"] = $_POST["Hashcode"];
+                 echo "<script>window.location.href = 'index.php?controller=blogpost&action=readAll';</script>";
+                 //call('blogpost', 'readAll');               
             } else {
                 require_once('views/user/login.php');
                 echo '<script language="javascript">';
@@ -32,6 +35,12 @@ class UserController {
                 echo '</script>';
             }
         }
+    }
+    public function logout() {       
+        User::logout();
+        echo "<script>window.location.href = 'index.php?controller=pages&action=home ';</script>";
+        //call('pages', 'home');
+        
     }
 
     public function search() {

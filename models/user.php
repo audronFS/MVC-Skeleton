@@ -127,17 +127,22 @@ class User {
         $this->_username = $username;
     }
 
-    public static function login() {
+    public static function login() { 
         $db = Db::getInstance();
         $req = $db->prepare("SELECT * FROM blogger WHERE Username = :Username AND Hashcode = :Hashcode LIMIT 1");
         $login = htmlentities(addslashes($_POST['Username']));
-        $hashcode = htmlentities(addslashes($_POST['Hashcode']));
+	$hashcode = htmlentities(addslashes($_POST['Hashcode']));
         $req->bindValue(":Username", $login);
         $req->bindValue(":Hashcode", $hashcode);
         $req->execute();
-
-        $register_number = $req->rowCount();
+        
+        $register_number=$req->rowCount();
         return $register_number;
+        
+    }
+    public static function logout(){
+        session_unset();
+        session_destroy();
     }
 
 //

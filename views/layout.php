@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<?php
-if (isset($_POST["Hashcode"])) {
-    session_start();
-    $_SESSION["Username"] = $_POST["Username"];
-    echo "Wellcome " . $_SESSION["Username"];
-} else {
+<?php session_start();
     ?>
     <html>
         <head>
@@ -164,6 +159,11 @@ if (isset($_POST["Hashcode"])) {
                     <li class="nav-item">              
                         <a class="nav-link" href='?controller=user&action=login'>Login</a>
                     </li>
+                    <li class="nav-item">                         
+                        <?php if(!empty($_SESSION)){ ?>
+                        <a class="nav-link" href='?controller=user&action=logout'>Logout</a>
+                    </li>
+                      <?php }?>
 
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -259,4 +259,3 @@ if (isset($_POST["Hashcode"])) {
                 });
     </script>
 <?php
-}?>
