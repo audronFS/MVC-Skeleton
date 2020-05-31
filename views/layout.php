@@ -143,9 +143,11 @@
                         <a class="nav-link" href='?controller=blogpost&action=create'>Add Blog</a>
                     </li>
                       <?php }?>
+                    <?php if(empty($_SESSION)){ ?>
                     <li class="nav-item">
                         <a class="nav-link" href='?controller=user&action=create'>Register</a>
                     </li>
+                    <?php }?>
                     <li class="nav-item">
                         <a class="nav-link" href='?controller=blogpost&action=readCategory&categoryID=1'>Aww</a>
                     </li>
