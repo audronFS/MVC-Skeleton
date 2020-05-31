@@ -50,12 +50,12 @@
             <hr>
            </div>    
           </div>
-            <div class='card mb-4'>
+            <!--<div class='card mb-4'>
     <!--  the below line will show the following <img class='card-img-top' src='views/images/$imageName' alt='Card image cap';/>-->
                         <?php echo $img; ?>
 
             <div class="card my-4 p-3">
-                <h5>Comments:</h5>
+                <h5><b>Comments</b></h5>
                 <?php
                 try {
                     if ($comments) {
@@ -87,7 +87,7 @@
 
             <div class="card my-4 p-3">
                 <form action="" method="POST" class="" enctype="multipart/form-data">    
-                    <h5>Leave a comment</h5>
+                    <h5><b>Leave a comment</b></h5>
                     <div class="card-body">
                         <p>
                             <textarea class="form-control" rows="1" name="Username" placeholder="Name" required></textarea>    
@@ -105,7 +105,7 @@
 
             </div>
 
-        </div>
+        <!--</div>-->
         <div class="col-lg-2"></div>
     </div>
 </div>

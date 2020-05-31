@@ -13,7 +13,7 @@ class UserController {
         } else {
             User::Register();  
             echo '<script language="javascript">';
-            echo 'alert("registration successful. Please, login")';
+            echo 'alert("Registration successful! Please sign in.")';
             echo '</script>';
             echo "<script>window.location.href = 'index.php?controller=user&action=login ';</script>";
             

@@ -9,10 +9,10 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">                
                 <!--Text banner-->
-                <div class="col-md-8  py-3">
+                <!--<div class="col-md-8  py-3">-->
                     <h1 class="display">AWW</h1>
                     <p class="lead">Get ready to gush over these cuties!</p>
-                </div>
+                <!--</div>
                 <!-- Blog Post | For Each -->
                 <?php
                 foreach ($blogposts as $blogpost) {
