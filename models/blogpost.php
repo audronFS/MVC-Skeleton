@@ -140,6 +140,10 @@ class BlogPost {
 
     public static function add() {
         $db = Db::getInstance();
+        $userid = $_SESSION['Username'];
+        $req = $db->query("SELECT BloggerId FROM blogger WHERE username='$userid'");  
+        $userid = $req->fetch();        
+
         $req = $db->prepare("Insert into blogpost(BloggerID, PetTypeID, CategoryID, BlogPostName, BlogPostSubName, BlogPostContent, BlogPostPhoto, DatePosted) values (:BloggerID, :PetTypeID, :CategoryID, :BlogPostName, :BlogPostSubName, :BlogPostContent, :BlogPostPhoto, :DatePosted)");
         $req->bindParam(':BlogPostName', $blogPostName);
         $req->bindParam(':BlogPostSubName', $blogPostSubName);
@@ -161,9 +165,9 @@ class BlogPost {
         if (isset($_POST['BlogPostContent']) && $_POST['BlogPostContent'] != "") {
             $filteredBlogPostContent = filter_input(INPUT_POST, 'BlogPostContent', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-        if (isset($_POST['BloggerID']) && $_POST['BloggerID'] != "") {
-            $filteredBloggerID = filter_input(INPUT_POST, 'BloggerID', FILTER_SANITIZE_SPECIAL_CHARS);
-        }if (isset($_POST['PetTypeID']) && $_POST['PetTypeID'] != "") {
+//        if (isset($_POST['BloggerID']) && $_POST['BloggerID'] != "") {
+//            $filteredBloggerID = filter_input(INPUT_POST, 'BloggerID', FILTER_SANITIZE_SPECIAL_CHARS)};
+        if (isset($_POST['PetTypeID']) && $_POST['PetTypeID'] != "") {
             $filteredPetTypeID = filter_input(INPUT_POST, 'PetTypeID', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         if (isset($_POST['CategoryID']) && $_POST['CategoryID'] != "") {
@@ -174,7 +178,8 @@ class BlogPost {
         $blogPostName = $filteredBlogPostName;
         $blogPostSubName = $filteredBlogPostSubName;
         $blogPostContent = $filteredBlogPostContent;
-        $bloggerID = $filteredBloggerID;
+        //$bloggerID = $filteredBloggerID;
+        $bloggerID = $userid[0];
         $pettypeID = $filteredPetTypeID;
         $categoryID = $filteredBlogCategoryID;
         $datePosted = date("Y-m-d H:i:s");
@@ -207,8 +212,8 @@ class BlogPost {
         }
 
         $tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
-        $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
-        //$path = __DIR__ . "/../views/images/"; //Claudia's path
+        //$path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
+        $path = __DIR__ . "/../views/images/"; //Claudia's path
 //        $blogPostName = trim($blogPostName);
         $blogPostName = time();
         $destinationFile = $path . $blogPostName . '.jpeg';  //in the database, we store the reference to that path.

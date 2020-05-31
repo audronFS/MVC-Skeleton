@@ -39,7 +39,7 @@ class User {
 
     public static function Register() {
         $db = Db::getInstance();
-        $req = $db->prepare("Insert into Blogger(BloggerID, FirstName, LastName, Username, Email, Hashcode, DateJoined, ProfilePhoto, AboutMe) values (:BloggerID, :FirstName, :LastName, :Username, :Email, :Hashcode, :DateJoined, :ProfilePhoto, :AboutMe)");
+        $req = $db->prepare("Insert into Blogger(BloggerID, FirstName, LastName, Username, Email, Hashcode, DateJoined, AboutMe) values (:BloggerID, :FirstName, :LastName, :Username, :Email, :Hashcode, :DateJoined, :AboutMe)");
         $req->bindParam(':BloggerID', $bloggerID);
         $req->bindParam(':FirstName', $firstname);
         $req->bindParam(':LastName', $lastname);
@@ -47,7 +47,7 @@ class User {
         $req->bindParam(':Email', $email);
         $req->bindParam(':Hashcode', $hashcode);
         $req->bindParam(':DateJoined', $datejoined);
-        $req->bindParam(':ProfilePhoto', $profilephoto);
+        //$req->bindParam(':ProfilePhoto', $profilephoto);
         $req->bindParam(':AboutMe', $aboutme);
 
 
@@ -80,7 +80,7 @@ class User {
         $email = $filteredEmail;
         $hashcode = $filteredHashcode;
         $datejoined = $filteredDateJoined;
-        $profilephoto = User::uploadFile($firstname);
+        //$profilephoto = User::uploadFile($firstname);
         $aboutme = $filteredAboutMe;
         $req->execute();
 //
@@ -88,44 +88,6 @@ class User {
 //        User::uploadFile($firstname); //? what to change to?
     }
 
-    const AllowedTypes = ['image/jpeg', 'image/jpg'];
-    const InputKey = 'myUploader';
-
-//die() function calls replaced with trigger_error() calls
-//replace with structured exception handling
-    public static function uploadFile(string $firstname) {
-
-        if (empty($_FILES[self::InputKey])) {
-            //die("File Missing!");
-            trigger_error("File Missing!");
-        }
-
-        if ($_FILES[self::InputKey]['error'] > 0) {
-            trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
-        }
-
-
-        if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
-            trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
-        }
-
-        $tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
-        $destinationFile = $path . $firstname . '.jpeg';
-
-        if (!move_uploaded_file($tempFile, $destinationFile)) {
-            trigger_error("Handle Error");
-        }
-
-        //Clean up the temp file
-        if (file_exists($tempFile)) {
-            unlink($tempFile);
-        }
-    }
-
-    public function getUsername() {
-        $this->_username = $username;
-    }
 
     public static function login() { 
         $db = Db::getInstance();

@@ -11,8 +11,14 @@ class UserController {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             require_once('views/user/create.php');
         } else {
-            User::Register();
+            User::Register();  
+            echo '<script language="javascript">';
+            echo 'alert("registration successful. Please, login")';
+            echo '</script>';
+            echo "<script>window.location.href = 'index.php?controller=user&action=login ';</script>";
+            
         }
+        
     }
 
     public function login() {
