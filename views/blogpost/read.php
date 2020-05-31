@@ -1,88 +1,104 @@
 
-<!--<p>This is the requested product:</p>-->
-<div id="realTimeContents">
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-            <!-- Post Content Column -->
-            <div class="col-lg-8">
+<!-- Page Content -->
+<div class="container">
 
-                <p>Blogpost ID: <?php echo $blogpost->blogpostID; ?></p>
-                <p>Pet: <?php echo $blogpost->pettypeID; ?></p>
-                <p>Category: <?php echo $blogpost->categoryID; ?></p>
-                <p>Blogpost Name: <?php echo $blogpost->blogPostName; ?></p>
-                <p>Blogpost SubName: <?php echo $blogpost->blogPostSubName; ?></p>
-                <p>Blogpost Content: <?php echo $blogpost->blogPostContent; ?></p>
+    <div class="row">
 
+        <!-- Post Content Column -->
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <br>
+
+            
+
+
+            <!-- Date/Time 
+            <p>Posted on January 1, 2019 at 12:00 PM</p>
+    
+            <hr>-->
+
+            <!-- Preview Image -->
+            <div style="width:100%">
+            <div style="float:left">  
+           
+            <?php
+            $file = $blogpost->blogPostPhoto;   
+            if (file_exists($file)) {
+                $file = explode('/', $file, 5);
+                $img = "<img align=”left” style=”margin: 0px 10px 10px 10px src='$file[4]' width='150' />" ;
+                echo $img;
+            } else {
+                echo "<img src='views/images/standard/_noproductimage.png' width='150'/>";
+            }
+            ?>
+          </div>
+            <!-- Title -->
+            
+            <div style="float:none">
+            <h1 class="mt-4"><?php echo $blogpost->blogPostName; ?></h1>
+            <h2><?php echo $blogpost->blogPostSubName; ?></h2>
+            <hr>
+
+            <!-- Post Content -->
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+
+            <hr>
+           </div>    
+          </div>
+
+            <div class="card my-4 p-3">
+                <h5>Comments:</h5>
                 <?php
-                $file = $blogpost->blogPostPhoto; 
-//C:/xampp/htdocs/MVC-Skeleton/views/images/Test1.jpeg
-//$file is getting the photo from DB. 
-//$file = 'views/images/' . $blogpost->title . '.jpeg';
+                try {
+                    if ($comments) {
+                        foreach ($comments as $comment1) {
+                            ?> 
+                            <div class="card my-4 p-3">
+                                <p> <b>Username: </b> <?php echo $comment1->username; ?></p>
+                                <p><b>Comment: <br></b> <?php echo $comment1->commentContent; ?></p>
+                                <p><b>Posted on: </b> <?php echo $comment1->commentTime; ?></p>            
+                                <a href='?controller=blogpost&action=read&id=<?php echo $_GET['id']; ?>&CommentID=<?php echo $comment1->commentID; ?>'><button class="btn btn-primary" type="submit">Delete</button></a> &nbsp; &nbsp; 
+                            </div>
+                            <?php
+                        }
+                    } else {
+                        throw new Exception('No comments submitted');
+                    }
+                } catch (Exception $e) {
+                    ?>
 
-                if (file_exists($file)) {
-                    $file = explode('/', $file, 5);
-                    $img = "<img src='$file[4]' width='150' />";
-
-                    echo $img;
-                } else {
-                    echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
+                    <p> <?php echo '' . $e->getMessage(); ?></p>
+                    <?php
                 }
-
-
-//What I did to ensure that the photo I upload displays on the page:
-//1. Fixed the error inside the blogpost model
-//2. 
                 ?>
             </div>
 
-            <div>
-                <div>
-                    <div>             
-<?php
-try {
-    if ($comments) {
-        foreach ($comments as $comment1) {
-            ?>  
-                                    <p>Username: <?php echo $comment1->username; ?></p>
-                                    <p>Comments: <?php echo $comment1->commentContent; ?></p>
-                                    <p>Date: <?php echo $comment1->commentTime; ?></p>            
-                                    <a href='?controller=blogpost&action=read&id=<?php echo $_GET['id']; ?>&CommentID=<?php echo $comment1->commentID; ?>'>Delete</a> &nbsp; &nbsp;
 
-                                </div>
-                            </div>
-                        </div>  
-        <?php
-        }
-    } else {
-        throw new Exception('No comments');
-    }
-} catch (Exception $e) {
-    ?>
 
-                <p>Comments: <?php echo 'Message: ' . $e->getMessage(); ?></p>
-                <?php
-            }
-            ?>
-            <form action="" method="POST" class="" enctype="multipart/form-data">    
-                <p>New Comment</p>
+            <div class="card my-4 p-3">
+                <form action="" method="POST" class="" enctype="multipart/form-data">    
+                    <h5>Leave a comment</h5>
+                    <div class="card-body">
+                        <p>
+                            <textarea class="form-control" rows="1" name="Username" placeholder="Name" required></textarea>    
+                        </p>
+                        <p>
+                            <textarea class="form-control" rows="3" name="CommentContent" placeholder="Comment" required></textarea>
 
-                <p>
-                    <span style="color:red">*</span>
-                    <input class="" type="text" name="Username" placeholder="Name" required>
+                        </p>          
 
-                </p>
-                <p>
-                    <span style="color:red">*</span>
-                    <input class="" type="text" name="CommentContent" placeholder="Comment" required>
+                        <div  class="form-group">
+                            <button class="btn btn-primary" type="submit">Comment</button>
+                        </div> 
+                    </div>
+                </form>
 
-                </p>          
+            </div>
 
-                <div  class="form-group">
-                    <button class="btn btn-primary" type="submit">Comment</button>
-                </div>                     
+        </div>
+        <div class="col-lg-2"></div>
 
-            </form>
-
+    </div>
+</div>
 
 
