@@ -1,3 +1,4 @@
+<div id="realTimeContents">  <!-- Search Box on Navbar opening-->
 <!-- Page Container -->
 <div class="container-fluid">
     <!-- Page Content -->
@@ -56,6 +57,7 @@
         <div class="col-md-2"></div>
     </div>
 </div>
+</div> <!-- Search Box on Navbar closing -->
 
 
 

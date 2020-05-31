@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-
+                <!-- Search Box on Navbar opening -->
+<div id="realTimeContents">
                 <h1 class="display-5 py-3">Welcome to Pawsome <?php if(!empty($_SESSION)){echo ', ' . $_SESSION['Username'];}?></h1>
 
                 <p class="lead">A place for amazing stories about the cutest, funniest and most adventurous furry beings.</p>
@@ -51,13 +52,14 @@
                               <?php }?>
                         </div>                      
                     </div>
-                    <div class="display-4"> </div>           
+                    <div class="display-4"> </div>    
                 <?php } ?>
             </div> 
-
+</div>
 
             <div class="col-md-2"></div>
-        </div>
+        </div> <!-- Search Box on Navbar closing -->
+
     </div>
 
 </div>
