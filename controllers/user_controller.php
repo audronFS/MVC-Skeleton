@@ -1,4 +1,5 @@
 <?php
+
 //session_start();
 //Controller does the calls to the functionalities inside the models.
 
@@ -26,9 +27,8 @@ class UserController {
             if ($register_number != 0) {
                 $_SESSION["Username"] = $_POST["Username"];
                 $_SESSION['authorised'] = true; //2. Check if the session is true/if logged in
-                
-                echo "<script>window.location.href = 'index.php?controller=blogpost&action=readAll';</script>"; //3. if logged in, send the user to readAll.php
 
+                echo "<script>window.location.href = 'index.php?controller=blogpost&action=readAll';</script>"; //3. if logged in, send the user to readAll.php
 //                exit();
             } else {
                 require_once('views/user/login.php');
@@ -38,44 +38,13 @@ class UserController {
             }
         }
     }
-    
+
     public function logout() {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            session_destroy();
-            require_once('views/user/login.php');    
+            require_once('views/user/logout.php');
+        }
     }
-} 
-//      if ($register_number != 0) { //where to include this - inside login function in controller or in index.php?
-//        //set session
-//        $_SESSION=['authorized'] == true;
-//        //reload the page
-//        $_SESSION['success'] = 'Login successful';
-//        header('Location: index.php?controller=blogpost&action=readAll');
-//        exit;
-//    } else {
-//        $_SESSION=['error'] = 'Sorry, wrong email or password';
-//    }
-//}
-//    
-//   function messages() {
-//   $message = '';
-//   if($_SESSION['success'] != '') {
-//       $message = '<span class="success" id="message">'.$_SESSION['success'].'</span>';
-//       $_SESSION['success'] = '';
-//   }
-//   if($_SESSION['error'] != '') {
-//       $message = '<span class="error" id="message">'.$_SESSION['error'].'</span>';
-//       $_SESSION['error'] = '';
-//   }
-//   return $message;
-//}
-  
-//                
-    
-     //set a superglobal with a logged in successfully message/string
-    //Check whats in the superglobal and if successful, put a header
-    
-  
+
 
     public function search() {
         //we expect a url of form ?controller=user&action=create
@@ -89,5 +58,5 @@ class UserController {
             User::search();
         }
     }
-}
 
+}

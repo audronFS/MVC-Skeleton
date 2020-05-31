@@ -3,7 +3,6 @@
 //Register function defined in the User class.
 //This will be a 'create' function as it will be inserting a user's details into the Blogger table in the database.
 //This function & insert query has been connected to the HTML registeration form and tested to see if a user can register successfully.
-
 //For logins/logouts: will require a different query & sessions
 //*If Blogger is logged in, set to True
 //*If not, set to False
@@ -80,7 +79,7 @@ class User {
         $email = $filteredEmail;
         $hashcode = $filteredHashcode;
         $datejoined = $filteredDateJoined;
-        $profilephoto=User::uploadFile($firstname);
+        $profilephoto = User::uploadFile($firstname);
         $aboutme = $filteredAboutMe;
         $req->execute();
 //
@@ -127,50 +126,29 @@ class User {
         $this->_username = $username;
     }
 
-    public static function login() { 
+    public static function login() {
         $db = Db::getInstance();
         $req = $db->prepare("SELECT * FROM blogger WHERE Username = :Username AND Hashcode = :Hashcode LIMIT 1");
         $login = htmlentities(addslashes($_POST['Username']));
-	$hashcode = htmlentities(addslashes($_POST['Hashcode']));
+        $hashcode = htmlentities(addslashes($_POST['Hashcode']));
         $req->bindValue(":Username", $login);
         $req->bindValue(":Hashcode", $hashcode);
         $req->execute();
-        
-        $register_number=$req->rowCount();
+
+        $register_number = $req->rowCount();
         return $register_number;
-        
     }
-//
-// check for num rows
-//        if ($req->num_rows > 0) {
-//            //success
-//            $req->close();
-//            return true;
-//        } else {
-//            //failure
-//            $req->close();
-//            return false;
-//        } else {
-//            die("Error! Could not log in");
-//        }
-//    }
-//
-    public function logout() {
-        if(session_destroy()) // Destroying all sessions
-        echo "<script>window.location.href = 'index.php?controller=user&action=login';</script>"; //3. if logged in, send the user to readAll.php
-   exit;
-}
 
     public function search() {
 
-    $db = Db::getInstance();
-    if (isset($_POST["query"])) {
+        $db = Db::getInstance();
+        if (isset($_POST["query"])) {
 
 
-    $search = mysqli_real_escape_string($db, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
-    //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
-    //This is good to use and avoids sql injection
-    $query = "
+            $search = mysqli_real_escape_string($db, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
+            //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
+            //This is good to use and avoids sql injection
+            $query = "
   SELECT * FROM blogpost
   WHERE BlogPostName LIKE '%" . $search . "%'
   OR BlogPostSubName LIKE '%" . $search . "%' 

@@ -132,7 +132,7 @@
                 </li>
                 <?php
                 // 
-                if (!empty($_SESSION)) { //if logged in, show them add blog!!
+                if (isset($_SESSION['authorised'])) { //if logged in, show them add blog!!
                     echo "
                 <li class=nav-item>
                     <a class='nav-link' href='?controller=blogpost&action=create'>Add Blog</a> 
@@ -156,14 +156,14 @@
                 </li>
                 <?php
                 // 
-                if (empty($_SESSION)) { //this if statement: only show login if its unset. If you're logged in, its set- you shouldnt show the login
+                if (!isset($_SESSION['authorised'])) { //this if statement: only show login if its unset. If you're logged in, its set- you shouldnt show the login
                     echo "
                 <li class='nav-item'>              
                 <a class='nav-link' href='?controller=user&action=login'>Login</a>
                 </li>"; 
                 }
                 ?>
-                 <?php if(!empty($_SESSION)) {
+                 <?php if(isset($_SESSION['authorised'])) {
                  echo "<li class='nav-item'>              
                     <a class='nav-link' href='?controller=user&action=logout'>Logout</a>
                 </li>"; 
