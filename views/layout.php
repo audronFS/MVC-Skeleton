@@ -160,9 +160,11 @@
                         <a class="nav-link" name ="search_text" href='?controller=user&action=search'>Search</a>
                     </li>
                      <?php }?>
+                     <?php if(empty($_SESSION)){ ?>
                     <li class="nav-item">              
                         <a class="nav-link" href='?controller=user&action=login'>Login</a>
                     </li>
+                    <?php }?>
                     <li class="nav-item">                         
                         <?php if(!empty($_SESSION)){ ?>
                         <a class="nav-link" href='?controller=user&action=logout'>Logout</a>
