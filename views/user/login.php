@@ -1,3 +1,4 @@
+<div id="realTimeContents"> 
 
 <body class="">  
     <div class="container">
@@ -23,5 +24,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>

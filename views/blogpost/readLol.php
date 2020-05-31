@@ -1,3 +1,4 @@
+<div id="realTimeContents"> 
 <!-- Page Container -->
 <div class="container-fluid">
     <!-- Page Content -->
@@ -168,4 +169,4 @@
     <p class="lead">Animals never cease to amaze us!</p>
   </div>
 </div>-->
-
+</div>

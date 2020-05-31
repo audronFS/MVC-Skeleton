@@ -1,3 +1,4 @@
+<div id="realTimeContents"> 
 <div class="container-fluid">
     <!-- Page Content -->
     <div class="container">
@@ -56,4 +57,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

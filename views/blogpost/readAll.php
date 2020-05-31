@@ -1,5 +1,6 @@
 <p></p>
 <!-- Google Translate -->
+<div id="realTimeContents"> 
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-10"></div>
@@ -110,3 +111,4 @@
 
   </div>
    /.container -->
+</div>
