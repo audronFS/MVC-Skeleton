@@ -26,6 +26,7 @@ class UserController {
             if ($register_number != 0) {
                 $_SESSION["Username"] = $_POST["Username"];
                 $_SESSION['authorised'] = true; //2. Check if the session is true/if logged in
+                
                 echo "<script>window.location.href = 'index.php?controller=blogpost&action=readAll';</script>"; //3. if logged in, send the user to readAll.php
 
 //                exit();
