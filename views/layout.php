@@ -174,7 +174,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2 textSearchvalue_h" type="text" placeholder="Search" name="text-12" id="text-12" value="" >
-                    <button class="btn btn-secondary my-2 my-sm-0 searchButtonClickText_h" type="button">Search</button>
+                    <button class="btn btn-secondary my-2 my-sm-0 searchButtonClickText_h" type="button">Search</button>&nbsp;
                     <button class="btn btn-secondary my-2 my-sm-0 next_h" type="button">Next</button>
 
                 </form>
