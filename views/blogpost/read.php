@@ -70,10 +70,10 @@
                     <h5>Leave a comment</h5>
                     <div class="card-body">
                         <p>
-                            <textarea class="form-control" rows="1" type="text" name="Username" placeholder="Name" required></textarea>    
+                            <textarea class="form-control" rows="1" name="Username" placeholder="Name" required></textarea>    
                         </p>
                         <p>
-                            <textarea class="form-control" rows="3" name="Comment" placeholder="Comment" required></textarea>
+                            <textarea class="form-control" rows="3" name="CommentContent" placeholder="Comment" required></textarea>
 
                         </p>          
 
