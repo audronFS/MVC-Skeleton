@@ -67,9 +67,9 @@ class User {
         if (isset($_POST['Hashcode']) && $_POST['Hashcode'] != "") {
             $filteredHashcode = filter_input(INPUT_POST, 'Hashcode', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-        if (isset($_POST['DateJoined']) && $_POST['DateJoined'] != "") {
-            $filteredDateJoined = filter_input(INPUT_POST, 'DateJoined', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
+//        if (isset($_POST['DateJoined']) && $_POST['DateJoined'] != "") {
+//            $filteredDateJoined = filter_input(INPUT_POST, 'DateJoined', FILTER_SANITIZE_SPECIAL_CHARS);
+//        }
         if (isset($_POST['AboutMe']) && $_POST['AboutMe'] != "") {
             $filteredAboutMe = filter_input(INPUT_POST, 'AboutMe', FILTER_SANITIZE_SPECIAL_CHARS);
         }
@@ -79,7 +79,7 @@ class User {
         $username = $filteredUsername;
         $email = $filteredEmail;
         $hashcode = $filteredHashcode;
-        $datejoined = $filteredDateJoined;
+        $datejoined = date("Y-m-d");
         //$profilephoto = User::uploadFile($firstname);
         $aboutme = $filteredAboutMe;
         $req->execute();

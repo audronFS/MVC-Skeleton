@@ -63,8 +63,10 @@
                             <div class="card my-4 p-3">
                                 <p> <b>Username: </b> <?php echo $comment1->username; ?></p>
                                 <p><b>Comment: <br></b> <?php echo $comment1->commentContent; ?></p>
-                                <p><b>Posted on: </b> <?php echo $comment1->commentTime; ?></p>            
+                                <p><b>Posted on: </b> <?php echo $comment1->commentTime; ?></p>  
+                                <?php if(!empty($_SESSION)){ ?>
                                 <a href='?controller=blogpost&action=read&id=<?php echo $_GET['id']; ?>&CommentID=<?php echo $comment1->commentID; ?>'><button class="btn btn-primary" type="submit">Delete</button></a> &nbsp; &nbsp; 
+                                <?php } ?>
                             </div>
                             <?php
                         }

@@ -52,10 +52,10 @@
                                         <!--                                    <label for="Hashcode">Password</label><br/>-->
                                         <input type="password" class="form-control" name="Hashcode" id="hashcode" placeholder="Password" required="">
                                     </div>
-                                    <div class="form-group">
-                                        <!--                                    <label for="DateJoined">Registration Date</label><br/>-->
+<!--                                    <div class="form-group">
+                                                                            <label for="DateJoined">Registration Date</label><br/>
                                         <input type="date" class="form-control" name="DateJoined" id="datejoined" placeholder="Registration Date" required>
-                                    </div>
+                                    </div>-->
 
                                     <div class="form-group">
                                         <!--                                    <label for="AboutMe">AboutMe</label><br/>-->
