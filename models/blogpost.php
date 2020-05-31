@@ -209,7 +209,8 @@ class BlogPost {
         $tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
         $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
         //$path = __DIR__ . "/../views/images/"; //Claudia's path
-        $blogPostName = trim($blogPostName);
+//        $blogPostName = trim($blogPostName);
+        $blogPostName = time();
         $destinationFile = $path . $blogPostName . '.jpeg';  //in the database, we store the reference to that path.
 
 
