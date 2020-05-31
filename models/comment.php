@@ -33,7 +33,7 @@ class Comment {
         $db = Db::getInstance();
         //use intval to make sure $id is an integer
         $blogpostID = intval($blogpostID);
-        $req = $db->prepare('SELECT * FROM commentpost WHERE BlogPostID= :BlogPostID');
+        $req = $db->prepare('SELECT * FROM commentpost WHERE BlogPostID= :BlogPostID  ORDER BY CommentID DESC');
         //the query was prepared, now replace :id with the actual $id value
         $req->execute(array('BlogPostID' => $blogpostID));
         $comments = $req->fetchAll();
