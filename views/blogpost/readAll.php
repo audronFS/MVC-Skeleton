@@ -1,20 +1,4 @@
-<p></p>
-<!-- Google Translate -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-10"></div>
-        <div class="col-lg-2" align="right">
-            <div id="google_translate_element"> 
-                <script type="text/javascript">
-                    function googleTranslateElementInit() {
-                        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-                    }
-                </script>
-                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>      
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Blogs and Title -->
 <div class="container-fluid">
     <div class =" container">
