@@ -39,6 +39,7 @@
             <!-- Title -->
             
             <div style="float:none">
+                <div id="realTimeContents"><!-- Search Box on Navbar opening -->
             <h1 class="mt-4"><?php echo $blogpost->blogPostName; ?></h1>
 <!--            <h2><?php // echo $blogpost->blogPostSubName; ?></h2>-->
             <hr>
@@ -78,7 +79,7 @@
                     <?php
                 }
                 ?>
-            </div>
+            </div> <!-- Search Box on Navbar closing -->
 
 
 
@@ -104,8 +105,8 @@
 
         </div>
         <div class="col-lg-2"></div>
-
     </div>
+</div>
 </div>
 
 
