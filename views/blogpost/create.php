@@ -39,10 +39,10 @@
                         </div>
 
                         <div class="form-group">
-                            <p> Select your name </p>
-                            <select class="custom-select" name="BloggerID">
-                                <option value="1">Aleisha</option>
-                            </select>
+                            <p> Post by
+<!--                            <select class="custom-select" name="BloggerID">-->
+                                <?php if(!empty($_SESSION)){echo $_SESSION['Username'];}?></p>
+<!--                            </select>-->
                         </div>
                         <!--This is hardcoded. A more efficient way of doing the above is creating a foreeach, so that the data is being brought from the DB tables more dynamically-->
 
@@ -55,7 +55,7 @@
                                 <input type="file" name="myUploader" class="" required/>
                             </div>
                             <div  class="form-group">
-                                <button href="" class="btn btn-primary" type="submit">Publish</button>
+                                <button class="btn btn-primary" type="submit">Publish</button>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
