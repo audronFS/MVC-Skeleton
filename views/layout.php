@@ -138,9 +138,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href='?controller=blogpost&action=readAll'>Blogs</a>
                     </li>
+                      <?php if(!empty($_SESSION)){ ?>
                     <li class="nav-item">
                         <a class="nav-link" href='?controller=blogpost&action=create'>Add Blog</a>
                     </li>
+                      <?php }?>
                     <li class="nav-item">
                         <a class="nav-link" href='?controller=user&action=create'>Register</a>
                     </li>
@@ -153,9 +155,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href='?controller=blogpost&action=readCategory&categoryID=3'>Wow</a>
                     </li>
-                    <li class="nav-item">              
+                    <li class="nav-item">   
+                        <?php if(!empty($_SESSION)){ ?>
                         <a class="nav-link" name ="search_text" href='?controller=user&action=search'>Search</a>
                     </li>
+                     <?php }?>
                     <li class="nav-item">              
                         <a class="nav-link" href='?controller=user&action=login'>Login</a>
                     </li>

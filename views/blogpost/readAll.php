@@ -58,9 +58,11 @@
                             <a class="btn btn-primary" href='?controller=blogpost&action=read&id=<?php echo $blogpost->blogpostID; ?>'>Read More &rarr;</a>    
                         </div>
                         <div class="card-footer text-muted">
-                            <?php echo $blogpost->datePosted; ?> 
+                            <?php echo "Posted: " .   $blogpost->datePosted; ?> 
+                              <?php if(!empty($_SESSION)){ ?>
                             <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Edit</a>
                             <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'> Delete</a>
+                              <?php }?>
                         </div>                      
                     </div>
                     <div class="display-4"> </div>           
