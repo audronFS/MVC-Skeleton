@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <h1 class="display-3 py-3">Welcome to Pawsome</h1>
+                <h1 class="display-5 py-3">Welcome to Pawsome</h1>
                 <p class="lead">A place for amazing stories about the cutest, funniest and most adventurous furry beings.</p>
                 <!--<hr class="my-4">
                 <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>

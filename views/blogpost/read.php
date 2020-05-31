@@ -23,20 +23,24 @@
            
             <?php
             $file = $blogpost->blogPostPhoto;   
-            if (file_exists($file)) {
-                $file = explode('/', $file, 5);
-                $img = "<img align=”left” style=”margin: 0px 10px 10px 10px src='$file[4]' width='150' />" ;
-                echo $img;
-            } else {
-                echo "<img src='views/images/standard/_noproductimage.png' width='150'/>";
-            }
+            if (empty($blogpost->blogPostPhoto)) {
+                     
+                        } else {
+                            $filePath = $blogpost->blogPostPhoto;
+                            $splitFilePath = explode('/', $filePath);
+                            $imageName = end($splitFilePath);
+                            //echo "<div>";
+                            $img = "<img class='card-img-top' src='views/images/$imageName' alt='Card image cap';/>";
+//                          echo $img;
+                        }
             ?>
           </div>
+                
             <!-- Title -->
             
             <div style="float:none">
             <h1 class="mt-4"><?php echo $blogpost->blogPostName; ?></h1>
-            <h2><?php echo $blogpost->blogPostSubName; ?></h2>
+<!--            <h2><?php // echo $blogpost->blogPostSubName; ?></h2>-->
             <hr>
 
             <!-- Post Content -->
@@ -45,6 +49,9 @@
             <hr>
            </div>    
           </div>
+            <div class='card mb-4'>
+    <!--  the below line will show the following <img class='card-img-top' src='views/images/$imageName' alt='Card image cap';/>-->
+                        <?php echo $img; ?>
 
             <div class="card my-4 p-3">
                 <h5>Comments:</h5>
