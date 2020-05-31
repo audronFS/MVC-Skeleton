@@ -22,7 +22,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
 
-                <h1 class="display-5 py-3">Welcome to Pawsome, <?php if(!empty($_SESSION)){echo $_SESSION['Username'];}?></h1>
+                <h1 class="display-5 py-3">Welcome to Pawsome <?php if(!empty($_SESSION)){echo ', ' . $_SESSION['Username'];}?></h1>
 
                 <p class="lead">A place for amazing stories about the cutest, funniest and most adventurous furry beings.</p>
                 <!--<hr class="my-4">
