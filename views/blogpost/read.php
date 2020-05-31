@@ -6,9 +6,9 @@
         <!-- Post Content Column -->
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
+            <br>
 
-            <!-- Title -->
-            <h1 class="mt-4"><?php echo $blogpost->blogPostName; ?></h1>
+            
 
 
             <!-- Date/Time 
@@ -17,17 +17,24 @@
             <hr>-->
 
             <!-- Preview Image -->
-            <img class="img-fluid rounded" alt="" >
+            <div style="width:100%">
+            <div style="float:left">  
+           
             <?php
-            $file = $blogpost->blogPostPhoto;
+            $file = $blogpost->blogPostPhoto;   
             if (file_exists($file)) {
                 $file = explode('/', $file, 5);
-                $img = "<img src='$file[4]' width='150' />";
+                $img = "<img align=”left” style=”margin: 0px 10px 10px 10px src='$file[4]' width='150' />" ;
                 echo $img;
             } else {
-                echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
+                echo "<img src='views/images/standard/_noproductimage.png' width='150'/>";
             }
             ?>
+          </div>
+            <!-- Title -->
+            
+            <div style="float:none">
+            <h1 class="mt-4"><?php echo $blogpost->blogPostName; ?></h1>
             <h2><?php echo $blogpost->blogPostSubName; ?></h2>
             <hr>
 
@@ -35,6 +42,8 @@
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
 
             <hr>
+           </div>    
+          </div>
 
             <div class="card my-4 p-3">
                 <h5>Comments:</h5>
