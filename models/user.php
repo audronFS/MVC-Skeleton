@@ -128,54 +128,64 @@ class User {
 //        session_start();
 //    }
 
-    public function search() {
+    public static function search() {
+$connect = mysqli_connect("localhost", "root", "", "pets"); //database connection
+$output = '';
 
-        $db = Db::getInstance();
-        if (isset($_POST["query"])) {
-
-
-            $search = mysqli_real_escape_string($db, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
-            //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
-            //This is good to use and avoids sql injection
-            $query = "
+if (isset($_POST["query"])) {
+    $search = mysqli_real_escape_string($connect, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
+    //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
+    //This is good to use and avoids sql injection
+    $query = "
   SELECT * FROM blogpost
   WHERE BlogPostName LIKE '%" . $search . "%'
   OR BlogPostSubName LIKE '%" . $search . "%' 
   OR BlogPostContent LIKE '%" . $search . "%' 
+  OR BlogPostPhoto LIKE '%" . $search . "%' 
+
  "; //MySQL query with placeholders
-        } else {
-            $query = "
+} else {
+    $query = "
   SELECT * FROM blogpost ORDER BY BlogPostName
  ";
-        }
-        $result = mysqli_query($db, $query);
-        if (mysqli_num_rows($result) > 0) {
-            $output .= '
+}
+$result = mysqli_query($connect, $query);
+if (mysqli_num_rows($result) > 0) {
+    $output .= '
   <div class="table-responsive">
    <table class="table table bordered">
     <tr>
      <th>Title </th>
      <th>Subtitle</th>
      <th>Blog Post</th>
+     <th>Photo</th>
+
      <th></th>
      <th></th>
     </tr>
  ';
-            while ($row = mysqli_fetch_array($result)) {//while the function is fetching the array, display the title, date published, quantity in stock of the page.
-                $output .= '
+    while ($row = mysqli_fetch_array($result)) {//while the function is fetching the array, display the title, date published, quantity in stock of the page.
+        $output .= '
    <tr>
     <td>' . $row["BlogPostName"] . '</td>
     <td>' . $row["BlogPostSubName"] . '</td>
     <td>' . $row["BlogPostContent"] . '</td>
+    <td>' . $row["BlogPostPhoto"] . '</td>
+
    </tr>
   ';
-            }
-            echo $output;
-        } else {
-            echo 'Blog post not found.';
-        }
     }
+    echo $output;
+} else {
+    echo 'Blog post not found.';
+}
+        
+    }       
 
+ 
+    
+    
+    
 }
 
 //Functions we may need if we create an admin user, or if we decide to make our current blogger a normal blogger user as well as an admin with a range of powers over the blog:
