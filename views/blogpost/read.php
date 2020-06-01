@@ -45,15 +45,15 @@
             <hr>
 
             <!-- Post Content -->
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-
+<!--            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>-->
+                <p><?php echo $blogpost->blogPostContent; ?></p>
             <hr>
            </div>    
           </div>
             <!--<div class='card mb-4'>
     <!--  the below line will show the following <img class='card-img-top' src='views/images/$imageName' alt='Card image cap';/>-->
                         <?php echo $img; ?>
-
+                        Posted by: <?php echo $username; ?>
             <div class="card my-4 p-3">
                 <h5><b>Comments</b></h5>
                 <?php

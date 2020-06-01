@@ -78,6 +78,17 @@ class BlogPost {
             throw new Exception('Blogposts could not be found.');
         }
     }
+    public static function UserName($bloggerID){
+        
+        $db = Db::getInstance();     
+        $bloggerID=intval($bloggerID);  
+        $req = $db->prepare("SELECT Username FROM blogger WHERE BloggerID=:BloggerID");  
+        $req->execute(array('BloggerID' => $bloggerID));        
+        $username = $req->fetch();
+        $username=$username[0];
+        return $username;
+
+    }
 
 //public static function update($blogpostID) {
 
@@ -137,6 +148,7 @@ class BlogPost {
             $req->execute();
         }
     }
+    
 
     public static function add() {
         $db = Db::getInstance();
