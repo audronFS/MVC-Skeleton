@@ -70,9 +70,10 @@ class User {
 //        if (isset($_POST['DateJoined']) && $_POST['DateJoined'] != "") {
 //            $filteredDateJoined = filter_input(INPUT_POST, 'DateJoined', FILTER_SANITIZE_SPECIAL_CHARS);
 //        }
-        if (isset($_POST['AboutMe']) && $_POST['AboutMe'] != "") {
+      if (isset($_POST['AboutMe']) && $_POST['AboutMe'] != "") {
             $filteredAboutMe = filter_input(INPUT_POST, 'AboutMe', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
+             $aboutme = $filteredAboutMe;  
+        }else{$aboutme=null;}
 
         $firstname = $filteredFirstName;
         $lastname = $filteredLastName;
@@ -81,7 +82,7 @@ class User {
         $hashcode = $filteredHashcode;
         $datejoined = date("Y-m-d");
         //$profilephoto = User::uploadFile($firstname);
-        $aboutme = $filteredAboutMe;
+        //$aboutme = $filteredAboutMe;
         $req->execute();
 //
 ////upload product image
