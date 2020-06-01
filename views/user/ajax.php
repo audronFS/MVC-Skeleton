@@ -9,9 +9,9 @@ and open the template in the editor.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Blog Posts search via PHP, AJAX and jQuery</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <!--        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />-->
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+<!--                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />-->
     </head>
     <body>
         <div class="container">
@@ -33,22 +33,22 @@ and open the template in the editor.
 <script>
     $(document).ready(function () {
 
-        load_data();
-
         function load_data(query)
         {
             $.ajax({
-                url: "user.php",
+//                url: "?controller=user&action=search", //fetch.php //"?controller=user&action=search"
                 method: "POST", //method type
                 data: {query: query},
                 success: function (data)
                 {
                     $('#result').html(data);
+//                    console.log(data);
                 }
             });
         }
         $('#search_text').keyup(function () {
             var search = $(this).val();
+//            console.log(search);
             if (search != '') //even if there is no search, still load the whole books table.
             {
                 load_data(search);
