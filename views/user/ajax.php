@@ -36,7 +36,7 @@ and open the template in the editor.
         function load_data(query)
         {
             $.ajax({
-//                url: "?controller=user&action=search", //fetch.php //"?controller=user&action=search"
+              url: "?controller=user&action=search", //fetch.php //"?controller=user&action=search"
                 method: "POST", //method type
                 data: {query: query},
                 success: function (data)
@@ -52,7 +52,7 @@ and open the template in the editor.
             if (search != '') //even if there is no search, still load the whole books table.
             {
                 load_data(search);
-            } else
+            } else //to comment out lines 55 to 58
             {
                 load_data();
             }
