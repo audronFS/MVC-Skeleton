@@ -122,54 +122,54 @@ class User {
 
     
     //Original query in fetch.php
-    public static function search() {
-        $connect = mysqli_connect("localhost", "root", "", "pets"); //database connection
-        $output = '';
-
-        if (isset($_POST["query"])) {
-            $search = mysqli_real_escape_string($connect, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
-            //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
-            //This is good to use and avoids sql injection
-            $query = "
-  SELECT * FROM blogpost
-  WHERE BlogPostName LIKE '%" . $search . "%'
-  OR BlogPostSubName LIKE '%" . $search . "%' 
-  OR BlogPostContent LIKE '%" . $search . "%' 
-
- "; //MySQL query with placeholders
-//} else {
-//    $query = "
-//  SELECT * FROM blogpost ORDER BY BlogPostName
-// ";
-        }
-        $result = mysqli_query($connect, $query);
-        if (mysqli_num_rows($result) > 0) {
-            $output .= '
-  <div class="table-responsive">
-   <table class="table table bordered">
-    <tr>
-     <th>Title </th>
-     <th>Subtitle</th>
-     <th>Blog Post</th>
-     <th></th>
-     <th></th>
-    </tr>
- ';
-            while ($row = mysqli_fetch_array($result)) {//while the function is fetching the array, display the title, date published, quantity in stock of the page.
-                $output .= '
-   <tr>
-    <td>' . $row["BlogPostName"] . '</td>
-    <td>' . $row["BlogPostSubName"] . '</td>
-    <td>' . $row["BlogPostContent"] . '</td>
-
-   </tr>
-  ';
-            }
-            echo $output;
-        } else {
-            echo 'Blog post not found.';
-        }
-    }
+//    public static function search() {
+//        $connect = mysqli_connect("localhost", "root", "", "pets"); //database connection
+//        $output = '';
+//
+//        if (isset($_POST["query"])) {
+//            $search = mysqli_real_escape_string($connect, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
+//            //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
+//            //This is good to use and avoids sql injection
+//            $query = "
+//  SELECT * FROM blogpost
+//  WHERE BlogPostName LIKE '%" . $search . "%'
+//  OR BlogPostSubName LIKE '%" . $search . "%' 
+//  OR BlogPostContent LIKE '%" . $search . "%' 
+//
+// "; //MySQL query with placeholders
+////} else {
+////    $query = "
+////  SELECT * FROM blogpost ORDER BY BlogPostName
+//// ";
+//        }
+//        $result = mysqli_query($connect, $query);
+//        if (mysqli_num_rows($result) > 0) {
+//            $output .= '
+//  <div class="table-responsive">
+//   <table class="table table bordered">
+//    <tr>
+//     <th>Title </th>
+//     <th>Subtitle</th>
+//     <th>Blog Post</th>
+//     <th></th>
+//     <th></th>
+//    </tr>
+// ';
+//            while ($row = mysqli_fetch_array($result)) {//while the function is fetching the array, display the title, date published, quantity in stock of the page.
+//                $output .= '
+//   <tr>
+//    <td>' . $row["BlogPostName"] . '</td>
+//    <td>' . $row["BlogPostSubName"] . '</td>
+//    <td>' . $row["BlogPostContent"] . '</td>
+//
+//   </tr>
+//  ';
+//            }
+//            echo $output;
+//        } else {
+//            echo 'Blog post not found.';
+//        }
+//    }
 
     
     //2nd attempt: trying to make the function work with PDO DB connection
@@ -224,70 +224,9 @@ class User {
 //        }
 //    }
     
-    
-    //4th attempt- turning mysqli into PDO query
-    
-//public static function search () {
-//    $db = Db::getInstance();
-//    $req = $db->prepare("SELECT * FROM blogpost
-//         WHERE BlogPostName LIKE '%" . $search . "%'
-//         OR BlogPostSubName LIKE '%" . $search . "%' 
-//         OR BlogPostContent LIKE '%" . $search. "%'");
-//        
-//    $req->setFetchMode(PDO::FETCH_ASSOC);
-//    $req->execute([':BlogPostName' => $blogPostName]);
-//    $req->execute([':BlogPostSubName' => $blogPostSubName]);
-//    $req->execute([':BlogPostContent' => $blogPostContent]);
-//
-//     foreach ($req->fetchAll() as $rows) {
-//            $list[] = new BlogPost($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);   
-//        }
-//        return $list;
-//        
-//         if ($req->rowCount() > 0) {
-//            $output .= '
-//  <div class="table-responsive">
-//   <table class="table table bordered">
-//    <tr>
-//     <th>Title </th>
-//     <th>Subtitle</th>
-//     <th>Blog Post</th>
-//     <th></th>
-//     <th></th>
-//    </tr>
-// ';
-//            foreach ($list as $row) {//while the function is fetching the array, display the title, date published, quantity in stock of the page.
-//                $output .= '
-//   <tr>
-//    <td>' . $row["BlogPostName"] . '</td>
-//    <td>' . $row["BlogPostSubName"] . '</td>
-//    <td>' . $row["BlogPostContent"] . '</td>
-//
-//   </tr>
-//  ';
-//            }
-//            echo $output;
-//        } else {
-//            echo 'Blog post not found.';
-//        }
-//    }
-
-
-    
-
-    
+      
 } //closing tag
 
 
-
-//$statement = $pdo_conn->prepare($query);
-//$statement->bindValue(':keyword', '%' . $search_keyword . '%', PDO::PARAM_STR);
-//$statement->execute();
-//if(!$statement->rowCount()){
-////if the results is null
-//echo "no result found";
-//}else{
-//$result = $statement->fetchAll();
-//}
 
 ?>

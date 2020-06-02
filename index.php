@@ -16,11 +16,11 @@
             $controller = 'pages'; //to change to blogpost controller. first signpost
             $action = 'home';
         } 
-        require_once('views/layout.php');
+//        require_once('views/layout.php');
 
-//        if(isset($_POST)) {
-//            require_once('views/user.php');
-//        }
+        if(!isset($_POST['query'])) {//if we are searching for info, this is the only time the navbar wont show again.
+            require_once('views/layout.php');
+        }
         //When you see require once and the file path - imagine as if all that code is underneath it.
         ?>
     </body>

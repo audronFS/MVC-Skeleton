@@ -239,6 +239,34 @@ class BlogPost {
         // the query was prepared, now replace :id with the actual $id value
         $req->execute(array('BlogPostID' => $blogpostID));
     }
+    
+    public static function search () {
+    $db = Db::getInstance();
+    $search = ($_POST["query"]);
+
+    if (isset($_POST["query"])) {
+        $likeSearch ="%".$search."%";
+        
+    $req = $db->prepare("SELECT * FROM blogpost
+         WHERE BlogPostName LIKE = :query'
+         OR BlogPostSubName LIKE :query' 
+         OR BlogPostContent LIKE :query");
+    
+    $req->bindValue(':query', $likeSearch);
+     // $req->bindParam(':query',$likeSearch);
+   // $req->setFetchMode(PDO::FETCH_ASSOC);
+        $req->execute();
+        
+     foreach ($req->fetchAll() as $rows) {
+            $list[] = new BlogPost($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);   
+        }
+       return $list;
+    }
+  
+
+
+    } 
+
 
 }
 
