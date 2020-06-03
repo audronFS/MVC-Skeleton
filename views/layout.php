@@ -159,7 +159,7 @@
                     </li>
                     <li class="nav-item">   
                         <?php if(!empty($_SESSION)){ ?>
-                        <a class="nav-link" href='?controller=user&action=search'>Search</a>
+                        <a class="nav-link" href='?controller=blogpost&action=search'>Search</a>
                     </li>
                      <?php }?>
                      <?php if(empty($_SESSION)){ ?>
