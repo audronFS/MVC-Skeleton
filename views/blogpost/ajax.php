@@ -17,6 +17,10 @@ and open the template in the editor.
 <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
     </head>
     <body>
+       <div class="alert alert-dismissible alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>New feature added yesterday!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+</div>
         <div class="container">
             <br />
             <h2 align="center"></h2><br />
