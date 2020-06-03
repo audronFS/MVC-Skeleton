@@ -14,6 +14,10 @@ and open the template in the editor.
                 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />-->
     </head>
     <body>
+  <div class="alert alert-dismissible alert-secondary">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+</div>
         <div class="container">
             <br />
             <h2 align="center"></h2><br />
@@ -21,6 +25,7 @@ and open the template in the editor.
                 <div class="input-group">
                     <span class="input-group-addon"></span>
                     <input type="text" name="search_text" id="search_text" placeholder="Search for your blog post by name, title or content" class="form-control" />
+                    
                 </div>
             </div>
             <br />

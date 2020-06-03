@@ -265,7 +265,6 @@ class BlogPost {
   WHERE BlogPostName LIKE '%" . $search . "%'
   OR BlogPostSubName LIKE '%" . $search . "%' 
   OR BlogPostContent LIKE '%" . $search . "%' 
-  OR BlogPostPhoto LIKE '%" . $search . "%' 
 
  "; //MySQL query with placeholders
         }
@@ -273,12 +272,12 @@ class BlogPost {
         if (mysqli_num_rows($result) > 0) {
             $output .= '
   <div class="table-responsive">
+  <div id="realTimeContents"><!-- Search Box on Navbar opening -->
    <table class="table table bordered">
     <tr>
      <th>Title </th>
      <th>Subtitle</th>
      <th>Blog Post</th>
-     <th>Photo</th>
 
      <th></th>
      <th></th>
@@ -290,10 +289,10 @@ class BlogPost {
     <td>' . $row["BlogPostName"] . '</td>
     <td>' . $row["BlogPostSubName"] . '</td>
     <td>' . $row["BlogPostContent"] . '</td>
-    <td>' . $row["BlogPostPhoto"] . '</td>
-
    </tr>
   ';
+   echo "</div>";
+
             }
             echo $output;
         } else {
