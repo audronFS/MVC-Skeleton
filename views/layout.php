@@ -159,7 +159,7 @@
                     </li>
                     <li class="nav-item">   
                         <?php if(!empty($_SESSION)){ ?>
-                        <a class="nav-link" name ="search_text" href='?controller=user&action=search'>Search</a>
+                        <a class="nav-link" href='?controller=user&action=search'>Search</a>
                     </li>
                      <?php }?>
                      <?php if(empty($_SESSION)){ ?>
@@ -253,33 +253,5 @@
     </html>
 
 
-    <script>
-                $(document).ready(function () {
 
-                    load_data();
-
-                    function load_data(query)
-                    {
-                        $.ajax({
-                            url: "user.php",
-                            method: "POST", //method type
-                            data: {query: query},
-                            success: function (data)
-                            {
-                                $('#result').html(data);
-                            }
-                        });
-                    }
-                    $('#search_text').keyup(function () {
-                        var search = $(this).val();
-                        if (search != '') //even if there is no search, still load the whole books table.
-                        {
-                            load_data(search);
-                        } else
-                        {
-                            load_data();
-                        }
-                    });
-                });
-    </script>
 <?php
